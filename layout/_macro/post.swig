@@ -91,25 +91,6 @@
               </time>
             {% endif %}
 
-            {% if theme.post_meta.updated_at.enable && datetime_diff %}
-              {% set display_updated = !theme.post_meta.updated_at.another_day || theme.post_meta.updated_at.another_day && date_diff %}
-
-              {% if display_updated or !theme.post_meta.created_at %}
-                {% if theme.post_meta.created_at and theme.post_meta.updated_at.enable %}
-                <span class="post-meta-divider">|</span>
-                {% endif %}
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                {% if theme.post_meta.item_text %}
-                  <span class="post-meta-item-text">{{ __('post.edited') }}</span>
-                {% endif %}
-                <time title="{{ __('post.modified') + __('symbol.colon') + full_date(post.updated) }}" itemprop="dateModified" datetime="{{ moment(post.updated).format() }}">{#
-                #}{{ date(post.updated) -}}
-                </time>
-              {% endif %}
-            {% endif %}
           </span>
 
           {% if post.categories and post.categories.length and theme.post_meta.categories %}
